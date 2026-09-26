@@ -91,7 +91,10 @@ public interface SignalBlockSupplier {
 
 	private static Item getBestItem(int signalStrength, int slots) {
 		if (signalStrength > 15)
-			return Items.WHITE_SHULKER_BOX;
+			//? if >=26.3 {
+			return Items.DYED_SHULKER_BOX.white();
+			//? } else
+			//return Items.WHITE_SHULKER_BOX;
 		else if (slots >= 15)
 			return Items.WOODEN_SHOVEL;
 		else
