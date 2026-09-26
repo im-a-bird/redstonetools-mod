@@ -3,7 +3,10 @@ package tools.redstone.redstonetools.mixin.blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RedStoneWireBlock;
+//? if >=26.3 {
+import net.minecraft.world.level.block.RedstoneWireBlock;
+//? } else
+//import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -15,7 +18,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import tools.redstone.redstonetools.config.General;
 import tools.redstone.redstonetools.features.toggleable.BigDustFeature;
 
-@Mixin(RedStoneWireBlock.class)
+//? if >=26.3 {
+@Mixin(RedstoneWireBlock.class)
+//? } else
+//@Mixin(RedStoneWireBlock.class)
 public class RedstoneHitboxMixin {
 	// use array for better performance
 	@Unique
