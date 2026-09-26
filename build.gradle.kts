@@ -87,7 +87,9 @@ dependencies {
 		implementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
 		implementation("com.sk89q.worldedit:worldedit-fabric-mc${project.property("worldedit_version")}")
 		implementation("fi.dy.masa.malilib:malilib-fabric-${project.property("malilib_version")}")
-		implementation("net.kr1v:malilib-api:${project.property("malilib_api_version")}")
+		implementation("net.kr1v:malilib-api:${project.property("malilib_api_version")}") {
+			exclude(group = "fi.dy.masa.malilib") // avoid pulling in malilib-api's pinned (possibly stale) transitive malilib-fabric version
+		}
 	}
 	annotationProcessor("net.kr1v:malilib-api-processor:1.0.0")
 }
