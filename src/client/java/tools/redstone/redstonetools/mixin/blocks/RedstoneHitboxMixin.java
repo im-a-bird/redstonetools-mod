@@ -3,6 +3,7 @@ package tools.redstone.redstonetools.mixin.blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+// Mojang mappings renamed RedStoneWireBlock -> RedstoneWireBlock in 26.3 (casing fix only).
 //? if >=26.3 {
 import net.minecraft.world.level.block.RedstoneWireBlock;
 //? } else

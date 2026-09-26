@@ -13,6 +13,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
+// LevelRenderer.renderHitOutline was removed in 26.3, replaced by the submit-node pipeline's
+// SubmitNodeCollector.submitShapeOutline(...), which is a public API and needs no invoker mixin.
+// This interface is intentionally empty on >=26.3; see AirPlaceFeature for the call site.
 @Mixin(LevelRenderer.class)
 public interface WorldRendererInvoker {
 	//? if <26.3 {

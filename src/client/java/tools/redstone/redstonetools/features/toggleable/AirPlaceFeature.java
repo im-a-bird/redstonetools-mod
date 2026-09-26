@@ -134,7 +134,20 @@ public class AirPlaceFeature extends ClientToggleableFeature {
 			if (blockState == null)
 				return;
 
-			/* render block outline */
+			/*
+			 * Render the block outline.
+			 *
+			 * Three rendering eras are threaded through this block:
+			 *   - <1.21.10: WorldRenderContext + a VertexConsumer, entity/camera position passed
+			 *     as raw doubles into the renderHitOutline mixin invoker.
+			 *   - 1.21.10-26.2: same VertexConsumer + mixin invoker approach, but the outline is
+			 *     described by a BlockOutlineRenderState instead of raw block/state args.
+			 *   - >=26.3: Mojang replaced the VertexConsumer/mixin approach with a submit-node
+			 *     pipeline. The context now hands out a PoseStack directly plus a
+			 *     SubmitNodeCollector that draws shapes itself, so there is no VertexConsumer, no
+			 *     mixin invoker (WorldRendererInvoker.invokeRenderHitOutline no longer exists), and
+			 *     no BlockOutlineRenderState needed - see the final `//? } else {` branch below.
+			 */
 			//? if >=26.3 {
 			Camera camera = client.gameRenderer.mainCamera();
 			//? } else

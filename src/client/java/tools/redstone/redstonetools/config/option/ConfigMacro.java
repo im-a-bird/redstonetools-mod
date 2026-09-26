@@ -116,6 +116,7 @@ public class ConfigMacro extends CustomConfigBase<ConfigMacro, Void> implements 
 			@Override
 			protected boolean onMouseClickedImpl(/*? if >=1.21.10 {*/net.minecraft.client.input.MouseButtonEvent click, boolean doubleClick/*? } else {*//*int mouseX, int mouseY, int mouseButton*//*? }*/) {
 				super.onMouseClickedImpl(/*? if >=1.21.10 {*/click, doubleClick/*? } else {*//*mouseX, mouseY, mouseButton*//*? }*/);
+				// The current screen moved off Minecraft directly and onto its Gui/HUD holder in 26.3.
 				//? if >=26.3 {
 				GuiBase.openGui(new GuiMacroEditor(Component.nullToEmpty(configMacro.macroName), configMacro, Minecraft.getInstance().gui.screen()));
 				//? } else
